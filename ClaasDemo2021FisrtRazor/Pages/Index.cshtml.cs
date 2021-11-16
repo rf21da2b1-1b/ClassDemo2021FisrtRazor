@@ -14,7 +14,7 @@ namespace ClaasDemo2021FisrtRazor.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private Kage _kage;
-        private KageKatalog _kageKatalog;
+        private IKageKatalog _kageKatalog;
 
 
         public Kage Kage
@@ -23,22 +23,24 @@ namespace ClaasDemo2021FisrtRazor.Pages
             set => _kage = value;
         }
 
-        public KageKatalog KageKatalog
+        public IKageKatalog KageKatalog
         {
             get => _kageKatalog;
             set => _kageKatalog = value;
         }
 
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, IKageKatalog kageKatalog)
         {
             _logger = logger;
+            _kageKatalog = kageKatalog;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             _kage = new Kage(3, "kaj", 23, KageSlagsType.Flødeskumskage);
-            _kageKatalog = new KageKatalog();
+            //_kageKatalog = new KageKatalog(); - ikke relevant sættes i konstruktør
+            return Page();
         }
     }
 }

@@ -6,7 +6,7 @@ using ClaasDemo2021FisrtRazor.model;
 
 namespace ClaasDemo2021FisrtRazor.services
 {
-    public class KageKatalog
+    public class KageKatalog: IKageKatalog
     {
         private List<Kage> _kager = null;
 
@@ -24,8 +24,13 @@ namespace ClaasDemo2021FisrtRazor.services
 
         public List<Kage> Kager
         {
-            get => _kager;
+            get => new List<Kage>(_kager);
             
+        }
+
+        public void AddKage(Kage kage)
+        {
+            _kager.Add(kage);
         }
     }
 }

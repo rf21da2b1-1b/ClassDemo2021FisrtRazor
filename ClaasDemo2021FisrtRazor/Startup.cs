@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClaasDemo2021FisrtRazor.services;
 
 namespace ClaasDemo2021FisrtRazor
 {
@@ -23,6 +24,9 @@ namespace ClaasDemo2021FisrtRazor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            // til hele applikation EET kagekatalog
+            services.AddSingleton<IKageKatalog, KageKatalog>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
