@@ -11,5 +11,6 @@ namespace ClaasDemo2021FisrtRazor.services
         List<Kage> Kager { get;  }
 
         void AddKage(Kage kage);
+        List<Kage> Search(string searchText);
     }
 }

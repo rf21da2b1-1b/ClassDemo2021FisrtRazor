@@ -8,7 +8,15 @@
 <div class="text-center">
     <h1 class="display-4">Hej</h1>
     <p>Her kommer Peters kager</p>
-    <p>@Model.Kage</p>
+    @*<p>@Model.Kage</p>*@
+    
+    <p>Her kan du søge</p>
+    <form method="post">
+        <label>SØG Efter NAVN</label>
+        <input type="text" asp-for="SearchText" class="form-control"/>
+        <input type="submit" Value="SØG" class="btn btn-primary"/>
+    </form>
+
     <table>
         <thead>
         <tr>
@@ -19,7 +27,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (Kage kage in @Model.KageKatalog.Kager)
+        @foreach (Kage kage in @Model.Kager)
         {
             <tr>
                 <td>@kage.Id</td>

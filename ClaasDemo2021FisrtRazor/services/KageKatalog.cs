@@ -32,5 +32,15 @@ namespace ClaasDemo2021FisrtRazor.services
         {
             _kager.Add(kage);
         }
+
+        public List<Kage> Search(string searchText)
+        {
+            if (String.IsNullOrWhiteSpace(searchText))
+            {
+                return new List<Kage>(_kager);
+            }
+
+            return _kager.FindAll(k => k.Navn.Contains(searchText));
+        }
     }
 }

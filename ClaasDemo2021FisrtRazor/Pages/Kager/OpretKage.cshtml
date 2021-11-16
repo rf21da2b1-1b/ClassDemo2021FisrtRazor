@@ -1,4 +1,5 @@
 ﻿@page
+@using ClaasDemo2021FisrtRazor.model
 @model ClaasDemo2021FisrtRazor.Pages.Kager.OpretKageModel
 @{
     ViewData["Title"] = "Opret en Kage";
@@ -21,7 +22,15 @@
 
                 <div class="form-group">
                     <label>SLAGS</label>
-                    <input type="text" asp-for="Kage.Slags" class="form-control" />
+                    @*<input type="text" asp-for="Kage.Slags" class="form-control" />*@
+                <select name="Kage.Slags" asp-for="Kage.Slags" class="form-control">
+                    @foreach (var slags in Enum.GetValues(typeof(KageSlagsType)))
+                    {
+                        <option value="@slags">@slags</option>
+                    }
+
+
+                </select>
                 </div>
                 
                 
