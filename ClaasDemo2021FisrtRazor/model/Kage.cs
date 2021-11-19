@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,12 +32,16 @@ namespace ClaasDemo2021FisrtRazor.model
             set => _id = value;
         }
 
+        [Required]
+        [StringLength(15, ErrorMessage = "En kage skal have en værdi men højst 15 tegn")]
         public string Navn
         {
             get => _navn;
             set => _navn = value;
         }
 
+        [Required]
+        [Range(0, 200, ErrorMessage = "Prisen skal være mellem 0-200 kr")]
         public double Pris
         {
             get => _pris;

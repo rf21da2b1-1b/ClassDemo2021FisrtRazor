@@ -31,6 +31,10 @@ namespace ClaasDemo2021FisrtRazor.Pages.Kager
 
         public IActionResult OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             Kage.Id = _kageKatalog.Kager.Max(k => k.Id) + 1;
 
             _kageKatalog.AddKage(Kage);
