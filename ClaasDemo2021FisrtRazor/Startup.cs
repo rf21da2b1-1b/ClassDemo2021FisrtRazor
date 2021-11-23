@@ -26,7 +26,7 @@ namespace ClaasDemo2021FisrtRazor
             services.AddRazorPages();
 
             // til hele applikation EET kagekatalog
-            services.AddSingleton<IKageKatalog, KageKatalog>();
+            services.AddSingleton<IKageKatalog, KageKatalogJson>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -35,7 +35,15 @@ namespace ClaasDemo2021FisrtRazor.Pages.Kager
             {
                 return Page();
             }
-            Kage.Id = _kageKatalog.Kager.Max(k => k.Id) + 1;
+
+            if (_kageKatalog.Kager.Count == 0)
+            {
+                Kage.Id = 1;
+            }
+            else
+            {
+                Kage.Id = _kageKatalog.Kager.Max(k => k.Id) + 1;
+            }
 
             _kageKatalog.AddKage(Kage);
 
