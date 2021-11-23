@@ -12,5 +12,11 @@ namespace ClaasDemo2021FisrtRazor.services
 
         void AddKage(Kage kage);
         List<Kage> Search(string searchText);
+
+        Kage Get(int id);
+
+        void UpdateKage(Kage kage);
+
+        Kage Slet(int id);
     }
 }

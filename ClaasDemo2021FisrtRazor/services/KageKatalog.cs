@@ -42,5 +42,34 @@ namespace ClaasDemo2021FisrtRazor.services
 
             return _kager.FindAll(k => k.Navn.Contains(searchText));
         }
+
+        public Kage Get(int id)
+        {
+            if (!_kager.Exists(k => k.Id == id))
+            {
+                throw new KeyNotFoundException("Id findes ikke " + id);
+            }
+
+            return _kager.Find(k => k.Id == id);
+        }
+
+        public void UpdateKage(Kage kage)
+        {
+            Kage foundKage = Get(kage.Id);
+
+            foundKage.Navn = kage.Navn;
+            foundKage.Pris = kage.Pris;
+            foundKage.Slags = kage.Slags;
+
+
+        }
+
+        public Kage Slet(int id)
+        {
+            Kage foundKage = Get(id);
+
+            _kager.Remove(foundKage);
+            return foundKage;
+        }
     }
 }

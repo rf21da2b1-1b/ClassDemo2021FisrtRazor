@@ -34,6 +34,9 @@
                 <td>@kage.Navn</td>
                 <td>@kage.Slags</td>
                 <td>@kage.Pris</td>
+                @*<td><a href="Kager/EditKage/@kage.Id">Edit</a></td>*@
+                <td><a asp-page="Kager/EditKage" asp-route-id="@kage.Id">Edit</a></td>
+                <td><a asp-page="Kager/SletKage" asp-route-id="@kage.Id">Slet</a></td>
             </tr>
         }
 

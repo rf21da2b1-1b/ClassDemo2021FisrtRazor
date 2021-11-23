@@ -32,7 +32,8 @@ namespace ClaasDemo2021FisrtRazor.model
             set => _id = value;
         }
 
-        [Required]
+        [Required (ErrorMessage = "Der skal være et navn til din kage")]
+        [RegularExpression(@"[A-ZÆØÅ]\w*")] // skal starte med stort bogstav
         [StringLength(15, ErrorMessage = "En kage skal have en værdi men højst 15 tegn")]
         public string Navn
         {
